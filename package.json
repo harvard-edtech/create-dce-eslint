@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/harvard-edtech/create-dce-eslint/issues"
   },
-  "homepage": "https://github.com/harvard-edtech/create-dce-eslint#readme"
+  "homepage": "https://github.com/harvard-edtech/create-dce-eslint#readme",
+  "dependencies": {
+    "prompt-sync": "^4.1.7"
+  }
 }
