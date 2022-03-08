@@ -62,7 +62,7 @@ if (!clientExists && !serverExists) {
     print.subtitle('Adding /client/.eslintrc file');
     copyTo(
       path.join(__dirname, '.eslintrc.json'),
-      path.join(clientDir, 'client/.eslintrc.json'),
+      path.join(clientDir, '.eslintrc.json'),
     );
     console.log('File created!');
   }
