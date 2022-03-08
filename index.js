@@ -23,9 +23,11 @@ const copyTo = (path, dest) => {
 
 const currDir = process.env.PWD;
 const clientDir = path.join(currDir, 'client');
+const serverDir = path.join(currDir, 'client');
 
 // Check if the client directory exists
 const clientExists = fs.existsSync(clientDir);
+const serverExists = fs.existsSync(serverDir);
 
 print.title('Initializing DCE ESLint Standards');
 
@@ -44,20 +46,33 @@ if (prompt() === null) {
 console.log('\nThis\'ll just take a moment.\n');
 
 print.subtitle('Installing dependencies...');
-exec('npm install --save-dev eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-jest');
+exec('npx install-peerdeps --dev eslint-config-airbnb');
+exec('npm i --save-dev eslint-config-airbnb-typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser');
 
-print.subtitle('Adding .eslintrc.json file');
-copyTo(
-  path.join(__dirname, '.eslintrc.json'),
-  path.join(currDir, '.eslintrc.json')
-);
-console.log('File created!');
+if (!clientExists && !serverExists) {
+  print.subtitle('Adding .eslintrc.json file');
+  copyTo(
+    path.join(__dirname, '.eslintrc.json'),
+    path.join(currDir, '.eslintrc.json')
+  );
+  console.log('File created!');
+}
 
 if (clientExists) {
   console.log('\n');
   print.subtitle('Adding /client/.eslintrc.json file');
   copyTo(
-    path.join(__dirname, 'client.eslintrc.json'),
+    path.join(__dirname, 'client/.eslintrc.json'),
+    path.join(clientDir, '.eslintrc.json')
+  );
+  console.log('File created!');
+}
+
+if (serverExists) {
+  console.log('\n');
+  print.subtitle('Adding /client/.eslintrc.json file');
+  copyTo(
+    path.join(__dirname, 'server/.eslintrc.json'),
     path.join(clientDir, '.eslintrc.json')
   );
   console.log('File created!');
