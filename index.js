@@ -23,7 +23,7 @@ const copyTo = (path, dest) => {
 
 const currDir = process.env.PWD;
 const clientDir = path.join(currDir, 'client');
-const serverDir = path.join(currDir, 'client');
+const serverDir = path.join(currDir, 'server');
 
 // Check if the client directory exists
 const clientExists = fs.existsSync(clientDir);
@@ -56,26 +56,25 @@ if (!clientExists && !serverExists) {
     path.join(currDir, '.eslintrc.json')
   );
   console.log('File created!');
-}
-
-if (clientExists) {
-  console.log('\n');
-  print.subtitle('Adding /client/.eslintrc.json file');
-  copyTo(
-    path.join(__dirname, 'client/.eslintrc.json'),
-    path.join(clientDir, '.eslintrc.json')
-  );
-  console.log('File created!');
-}
-
-if (serverExists) {
-  console.log('\n');
-  print.subtitle('Adding /client/.eslintrc.json file');
-  copyTo(
-    path.join(__dirname, 'server/.eslintrc.json'),
-    path.join(clientDir, '.eslintrc.json')
-  );
-  console.log('File created!');
+} else {
+  if (clientExists) {
+    console.log('\n');
+    print.subtitle('Adding /client/.eslintrc file');
+    copyTo(
+      path.join(__dirname, '.eslintrc.json'),
+      path.join(currDir, 'client/.eslintrc.json'),
+    );
+    console.log('File created!');
+  }
+  if (serverExists) {
+    console.log('\n');
+    print.subtitle('Adding /server/.eslintrc.json file');
+    copyTo(
+      path.join(__dirname, '.eslintrc.json'),
+      path.join(clientDir, '.eslintrc.json')
+    );
+    console.log('File created!');
+  }
 }
 
 console.log('\n');
