@@ -32,10 +32,10 @@ const serverExists = fs.existsSync(serverDir);
 print.title('Initializing DCE ESLint Standards');
 
 // Ask user to confirm
-if (clientExists) {
-  console.log('\nWe are about to install dependencies and add/overwrite .eslintrc.json and /client/.eslintrc.json');
+if (clientExists && serverExists) {
+  console.log('\nWe are about to install dependencies and add/overwrite .eslintrc.js and /client/.eslintrc.js');
 } else {
-  console.log('\nWe are about to install dependencies and add/overwrite .eslintrc.json');
+  console.log('\nWe are about to install dependencies and add/overwrite .eslintrc.js');
 }
 console.log('');
 print.subtitle('enter to confirm, ctrl + c to quit');
