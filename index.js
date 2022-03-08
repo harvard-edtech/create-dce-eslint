@@ -50,28 +50,28 @@ exec('npx install-peerdeps --dev eslint-config-airbnb');
 exec('npm i --save-dev eslint-config-airbnb-typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser');
 
 if (!clientExists && !serverExists) {
-  print.subtitle('Adding .eslintrc.json file');
+  print.subtitle('Adding .eslintrc.js file');
   copyTo(
-    path.join(__dirname, '.eslintrc.json'),
-    path.join(currDir, '.eslintrc.json')
+    path.join(__dirname, '.eslintrc.js'),
+    path.join(currDir, '.eslintrc.js')
   );
   console.log('File created!');
 } else {
   if (clientExists) {
     console.log('\n');
-    print.subtitle('Adding /client/.eslintrc file');
+    print.subtitle('Adding /client/.eslintrc.js file');
     copyTo(
-      path.join(__dirname, '.eslintrc.json'),
-      path.join(clientDir, '.eslintrc.json'),
+      path.join(__dirname, '.eslintrc.js'),
+      path.join(clientDir, '.eslintrc.js'),
     );
     console.log('File created!');
   }
   if (serverExists) {
     console.log('\n');
-    print.subtitle('Adding /server/.eslintrc.json file');
+    print.subtitle('Adding /server/.eslintrc.js file');
     copyTo(
-      path.join(__dirname, '.eslintrc.json'),
-      path.join(serverDir, '.eslintrc.json')
+      path.join(__dirname, '.eslintrc.js'),
+      path.join(serverDir, '.eslintrc.js')
     );
     console.log('File created!');
   }
