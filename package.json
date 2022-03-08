@@ -25,6 +25,6 @@
   },
   "homepage": "https://github.com/harvard-edtech/create-dce-eslint#readme",
   "dependencies": {
-    "prompt-sync": "^4.1.7"
+    "prompt-sync": "^4.1.6"
   }
 }
