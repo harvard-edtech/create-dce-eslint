@@ -1,6 +1,6 @@
 {
   "name": "create-dce-eslint",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Initializer that adds Harvard DCE eslint rules",
   "main": "index.js",
   "bin": {
