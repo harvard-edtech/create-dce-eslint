@@ -21,6 +21,12 @@ const config = {
       'warn',
       'always',
     ],
+    'react/function-component-definition': [
+      2,
+      {
+        namedComponents: 'arrow-function',
+      },
+    ],
     'arrow-parens': [
       'warn',
       'always',
