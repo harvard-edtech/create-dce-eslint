@@ -36,7 +36,7 @@ if (prompt() === null) {
 console.log('\nThis\'ll just take a moment.\n');
 
 print.subtitle('Installing dependencies...');
-exec('npx install-peerdeps --save-dev eslint-config-airbnb');
+exec('npx install-peerdeps --dev eslint-config-airbnb');
 exec('npm i --save-dev eslint-config-airbnb-typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser');
 
 print.subtitle('Adding .eslintrc.js file');
