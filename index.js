@@ -22,21 +22,11 @@ const copyTo = (path, dest) => {
 };
 
 const currDir = process.env.PWD;
-const clientDir = path.join(currDir, 'client');
-const serverDir = path.join(currDir, 'server');
-
-// Check if the client directory exists
-const clientExists = fs.existsSync(clientDir);
-const serverExists = fs.existsSync(serverDir);
 
 print.title('Initializing DCE ESLint Standards');
 
 // Ask user to confirm
-if (clientExists && serverExists) {
-  console.log('\nWe are about to install dependencies and add/overwrite .eslintrc.js and /client/.eslintrc.js');
-} else {
-  console.log('\nWe are about to install dependencies and add/overwrite .eslintrc.js');
-}
+console.log('\nWe are about to install dependencies and add/overwrite .eslintrc.js');
 console.log('');
 print.subtitle('enter to confirm, ctrl + c to quit');
 if (prompt() === null) {
@@ -46,36 +36,15 @@ if (prompt() === null) {
 console.log('\nThis\'ll just take a moment.\n');
 
 print.subtitle('Installing dependencies...');
-exec('npx install-peerdeps --dev eslint-config-airbnb');
+exec('npx install-peerdeps --save-dev eslint-config-airbnb');
 exec('npm i --save-dev eslint-config-airbnb-typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser');
 
-if (!clientExists && !serverExists) {
-  print.subtitle('Adding .eslintrc.js file');
-  copyTo(
-    path.join(__dirname, '.eslintrc.js'),
-    path.join(currDir, '.eslintrc.js')
-  );
-  console.log('File created!');
-} else {
-  if (clientExists) {
-    console.log('\n');
-    print.subtitle('Adding /client/.eslintrc.js file');
-    copyTo(
-      path.join(__dirname, '.eslintrc.js'),
-      path.join(clientDir, '.eslintrc.js'),
-    );
-    console.log('File created!');
-  }
-  if (serverExists) {
-    console.log('\n');
-    print.subtitle('Adding /server/.eslintrc.js file');
-    copyTo(
-      path.join(__dirname, '.eslintrc.js'),
-      path.join(serverDir, '.eslintrc.js')
-    );
-    console.log('File created!');
-  }
-}
+print.subtitle('Adding .eslintrc.js file');
+copyTo(
+  path.join(__dirname, '.eslintrc.js'),
+  path.join(currDir, '.eslintrc.js')
+);
+console.log('File created!');
 
 console.log('\n');
 

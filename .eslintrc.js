@@ -5,9 +5,12 @@ const config = {
   ],
   overrides: [
     {
-      files: ['*.ts', '*.tsx'
+      files: [
+        '*.ts',
+        '*.tsx',
       ],
-      extends: ['airbnb-typescript'
+      extends: [
+        'airbnb-typescript',
       ],
       parserOptions: {
         project: './tsconfig.json',
@@ -27,6 +30,7 @@ const config = {
         namedComponents: 'arrow-function',
       },
     ],
+    'react/react-in-jsx-scope': 'off',
     'arrow-parens': [
       'warn',
       'always',
