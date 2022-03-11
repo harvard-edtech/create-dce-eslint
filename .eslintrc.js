@@ -30,6 +30,7 @@ const config = {
         namedComponents: 'arrow-function',
       },
     ],
+    'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
     'arrow-parens': [
       'warn',
