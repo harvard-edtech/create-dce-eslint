@@ -2,6 +2,8 @@ const config = {
   extends: [
     'airbnb',
     'airbnb/hooks',
+    'react-app',
+    'react-app/jest',
   ],
   overrides: [
     {
@@ -17,6 +19,9 @@ const config = {
         tsconfigRootDir: __dirname,
         sourceType: 'module',
       },
+      rules: {
+        '@typescript-eslint/lines-between-class-members': 'off',
+      },
     },
   ],
   rules: {
@@ -30,6 +35,10 @@ const config = {
         namedComponents: 'arrow-function',
       },
     ],
+    'no-spaced-func': 'off',
+    'react-hooks/exhaustive-deps': 'off',
+    'lines-between-class-members': 'off',
+    'no-case-declarations': 'off',
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
     'arrow-parens': [
