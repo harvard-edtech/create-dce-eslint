@@ -21,6 +21,7 @@ const config = {
       },
       rules: {
         '@typescript-eslint/lines-between-class-members': 'off',
+        '@typescript-eslint/no-unused-expressions': 'off',
       },
     },
   ],
