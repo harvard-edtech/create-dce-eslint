@@ -61,7 +61,7 @@ const config = {
     'max-len': [
       'error',
       {
-        code: 80,
+        code: 125,
         ignoreStrings: true,
         ignoreTemplateLiterals: true,
         ignoreUrls: true,
