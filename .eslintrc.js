@@ -30,6 +30,7 @@ const config = {
       'warn',
       'always',
     ],
+    'react/prop-types': 'off',
     'react/function-component-definition': [
       2,
       {
